@@ -1,0 +1,23 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">ürün adı</th>
+        <th scope="col">kategori</th>
+        <th scope="col">stoktaki ürün</th>
+        <th scope="col">ürün fiyatı</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor ="let product of products">
+        <th  scope="row">{{product.productId}}</th>
+        <td>{{product.productName}}</td>
+        <td>{{product.categoryId}}</td>
+        <td>{{product.unitsInStock}}</td>
+        <td>{{product.unitPrice}}</td>
+
+      </tr>
+     
+    </tbody>
+  </table>
