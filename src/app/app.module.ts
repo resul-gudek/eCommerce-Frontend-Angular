@@ -6,18 +6,22 @@ import { AppComponent } from './app.component';
 import { ProductComponent } from './components/product/product.component';
 import { NavComponent } from './components/nav/nav.component';
 import { CategoryComponent } from './components/category/category.component';
+import { VatAddedPipe } from './pipes/vat-added.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductComponent,
     NavComponent,
-    CategoryComponent
+    CategoryComponent,
+    VatAddedPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

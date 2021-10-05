@@ -1,21 +1,32 @@
+<div class="mb-3">
+  <label for="filterText" class="form-label">Ürün arama</label>
+  <input type="text" class="form-control" [(ngModel)]="filterText" id="filterText" placeholder="Ürün adı giriniz">
+</div>
+<div class="alert alert-success" *ngIf ="filterText">
+  {{filterText}} ürünü aradınız.
+</div>
 <table class="table">
     <thead>
       <tr>
         <th scope="col">#</th>
         <th scope="col">ürün adı</th>
         <th scope="col">kategori</th>
-        <th scope="col">stoktaki ürün</th>
         <th scope="col">ürün fiyatı</th>
-
+        <th scope="col">kdv'li fiyatı</th>
+        <th scope="col">stoktaki ürün</th>
       </tr>
     </thead>
+    
+
     <tbody>
       <tr *ngFor ="let product of products">
         <th  scope="row">{{product.productId}}</th>
-        <td>{{product.productName}}</td>
+        <td>{{product.productName |uppercase}} </td>
         <td>{{product.categoryId}}</td>
+        <td>{{product.unitPrice |currency}}</td>
+        <td>{{product.unitPrice |vatAdded:10 |currency}}</td>
         <td>{{product.unitsInStock}}</td>
-        <td>{{product.unitPrice}}</td>
+
 
       </tr>
      
