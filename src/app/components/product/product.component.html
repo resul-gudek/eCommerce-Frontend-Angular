@@ -14,18 +14,20 @@
         <th scope="col">ürün fiyatı</th>
         <th scope="col">kdv'li fiyatı</th>
         <th scope="col">stoktaki ürün</th>
+        <th></th>
       </tr>
     </thead>
     
 
     <tbody>
-      <tr *ngFor ="let product of products">
+      <tr *ngFor ="let product of products | filterPipe:filterText">
         <th  scope="row">{{product.productId}}</th>
         <td>{{product.productName |uppercase}} </td>
         <td>{{product.categoryId}}</td>
         <td>{{product.unitPrice |currency}}</td>
-        <td>{{product.unitPrice |vatAdded:10 |currency}}</td>
+        <td>{{product.unitPrice |vatAdded:18 |currency}}</td>
         <td>{{product.unitsInStock}}</td>
+        <td><button (click) ="addToCart(product)" type="button" class="btn btn-success">Sepete Ekle</button></td>
 
 
       </tr>
